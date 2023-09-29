@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class stats_library 
+public class Stats_library_Ch1 
 {
 	public double findmean(ArrayList<Double> userinputnum)
 	{
@@ -24,24 +24,6 @@ public class stats_library
 	}
 	
 	public double findmode(ArrayList<Double> userinputnum)
-	{
-	double sum = 0;
-	
-	//storing a value for clarity
-	double result = sum / userinputnum.size();
-	return result;
-	}
-	
-	public double findintersection(ArrayList<Double> userinputnum)
-	{
-	double sum = 0;
-	
-	//storing a value for clarity
-	double result = sum / userinputnum.size();
-	return result;
-	}
-	
-	public double findunion(ArrayList<Double> userinputnum)
 	{
 	double sum = 0;
 	

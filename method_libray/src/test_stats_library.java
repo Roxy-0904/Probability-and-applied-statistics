@@ -4,7 +4,7 @@ public class test_stats_library
 {
 	public static void main(String[] args)
 	{
-	stats_library test = new stats_library();
+	Stats_library_Ch1 test = new Stats_library_Ch1();
 	ArrayList<Double> testnums = new ArrayList<Double>();
 	testnums.add(1.0);
 	testnums.add(2.0);
