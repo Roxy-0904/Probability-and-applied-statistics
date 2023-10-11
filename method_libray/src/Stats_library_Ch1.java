@@ -25,11 +25,41 @@ public class Stats_library_Ch1
 	
 	public double findmode(ArrayList<Double> userinputnum)
 	{
-	double sum = 0;
+        Double maxValue = 0.0;
+		int maxCount = 0;
+
+        for (int i = 0; i < userinputnum.size(); ++i) 
+
+        {
+
+            int count = 0;
+
+            for (int j = 0; j < userinputnum.size(); ++j) 
+
+            {
+
+                if (userinputnum.get(j) == userinputnum.get(i))
+
+                    ++count;
+
+            }
+
+            if (count > maxCount) 
+
+            {
+
+                maxCount = count;
+
+                maxValue = userinputnum.get(i);
+
+            }
+
+        }
+
+ 
+
+        return maxValue;
 	
-	//storing a value for clarity
-	double result = sum / userinputnum.size();
-	return result;
 	}
 	
 	public double findStandardDeviation(ArrayList<Double> userinputnum)
