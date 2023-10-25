@@ -3,22 +3,39 @@ import java.util.ArrayList;
 
 public class Stats_library_Ch2 
 {
-	public double findintersection(ArrayList<Double> userinputnum)
+	public double findintersection(ArrayList<Double> userinputnum1, ArrayList<Double> userinputnum2) 
 	{
-	double sum = 0;
-	
-	//storing a value for clarity
-	double result = sum / userinputnum.size();
-	return result;
+		double sum_of_arrylist_1 = 0.0;
+		double sum_of_arrylist_2 = 0.0;
+		if (userinputnum1 == null || userinputnum2 == null) 
+	    {
+	        return 0.0;
+	    }
+	    for (Double num : userinputnum1) {
+	        sum_of_arrylist_1 += num;
+	    }
+	    
+	    for (Double num : userinputnum2) {
+	        sum_of_arrylist_2 += num;
+	    }
+	    
+	    double intersect = Math.min(sum_of_arrylist_1, sum_of_arrylist_2);
+	    return intersect / userinputnum1.size();
 	}
 	
-	public double findunion(ArrayList<Double> userinputnum)
+	public ArrayList<Double> findunion(ArrayList<Double> userinputnum1,int elementfor1, ArrayList<Double> userinputnum2,int elementfor2)
 	{
-	double sum = 0;
-	
-	//storing a value for clarity
-	double result = sum / userinputnum.size();
-	return result;
+		ArrayList<Double> placeholder = new ArrayList<Double>();
+		
+		//for(int i = 0; i < elementfor1; i++)
+		//{
+			//placeholder.add(userinputnum1[i]);
+		//}
+		//for(int i = 0; i < elementfor2; i++)
+		//{
+			//placeholder.add(userinputnum2[i]);
+		//}
+		return placeholder;
 	}
 	
 	public double find_idependent_and_dependent_intersection(ArrayList<Double> userinputnum)
@@ -38,15 +55,9 @@ public class Stats_library_Ch2
 	double result = sum / userinputnum.size();
 	return result;
 	}
-	public static BigInteger findCombination(int n, int r)
+	public BigInteger findCombination(int n, int r)
 	{
-		//Check for invalid input: n < 0, r < 0, or r > n
-		if (n < 0 || r < 0 || r > n)
-		{
-			//Return BigInteger.ZERO for invalid input
-			return BigInteger.ZERO;
-		}
-		//Calculate the number as n!
+		
 		BigInteger num = factorial(BigInteger.valueOf(n));
 		//Calculate the denominator as r! * (n - r)!
 		BigInteger denom = factorial(BigInteger.valueOf(r)).multiply(factorial(BigInteger.valueOf(n - r)));
@@ -57,14 +68,9 @@ public class Stats_library_Ch2
 	}
 	
 	//Method to calculate premutations using BigInteger
-	public static BigInteger findPremutation(int n, int r)
+	public BigInteger findPremutation(int n, int r)
 	{
-		//Check for invalid input: n < 0, r < 0, or r > n
-		if (n < 0 || r < 0 || r > n)
-		{
-			//Return BigInteger.ZERO for invalid input
-			return BigInteger.ZERO;
-		}	
+			
 		//Calculate the result as n! / (n - r)!
 		BigInteger result = factorial(BigInteger.valueOf(n)).divide(factorial(BigInteger.valueOf(n - r)));
 		
@@ -72,25 +78,25 @@ public class Stats_library_Ch2
 		return result;
 	}	
 	//Method to calculate the factorial using BigInteger
-		public static BigInteger factorial(BigInteger n)
+	public BigInteger factorial(BigInteger n)
+	{
+		//Base case: 0! = 1
+		if (n.equals(BigInteger.ZERO))
 		{
-			//Base case: 0! = 1
-			if (n.equals(BigInteger.ZERO))
-			{
-				return BigInteger.ONE;
-			}
-			
-			//Initialize the result to 1
-			BigInteger result = BigInteger.ONE;
-			
-			//Calculate factorial using a loop
-			for (BigInteger i = BigInteger.ONE; i.compareTo(n) <= 0; i = i.add(BigInteger.ONE))
-			{
-				//Multiply result by each integer form 1 to n
-				result = result.multiply(i);
-			}
-			
-			//Return the factorial result
-			return result;
+			return BigInteger.ONE;
 		}
+			
+		//Initialize the result to 1
+		BigInteger result = BigInteger.ONE;
+			
+		//Calculate factorial using a loop
+		for (BigInteger i = BigInteger.ONE; i.compareTo(n) <= 0; i = i.add(BigInteger.ONE))
+		{
+			//Multiply result by each integer form 1 to n
+			result = result.multiply(i);
+		}
+			
+		//Return the factorial result
+		return result;
+	}
 }

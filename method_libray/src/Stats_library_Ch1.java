@@ -29,46 +29,39 @@ public class Stats_library_Ch1
 		int maxCount = 0;
 
         for (int i = 0; i < userinputnum.size(); ++i) 
-
         {
-
             int count = 0;
-
             for (int j = 0; j < userinputnum.size(); ++j) 
-
             {
-
                 if (userinputnum.get(j) == userinputnum.get(i))
-
-                    ++count;
-
+                {
+                	++count;
+                }    
             }
-
             if (count > maxCount) 
-
             {
-
                 maxCount = count;
-
                 maxValue = userinputnum.get(i);
-
             }
-
         }
-
- 
-
         return maxValue;
 	
 	}
 	
 	public double findStandardDeviation(ArrayList<Double> userinputnum)
 	{
-	double sum = 0;
-	
-	//storing a value for clarity
-	double result = sum / userinputnum.size();
-	return result;
+		double sum = 0.0;
+        double sumOfSquares = 0.0;
+
+        for (double num : userinputnum) 
+        {
+        	sum += num;
+            sumOfSquares += Math.pow(num, 2);
+        }
+        double mean = sum / userinputnum.size();
+        double variance = sumOfSquares / userinputnum.size() - Math.pow(mean, 2);
+        double stdDev = Math.sqrt(variance);
+        return stdDev;
 	}
 
 
