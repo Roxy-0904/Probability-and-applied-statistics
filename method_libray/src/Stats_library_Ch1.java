@@ -48,6 +48,7 @@ public class Stats_library_Ch1
 	
 	}
 	
+	
 	public double findStandardDeviation(ArrayList<Double> userinputnum)
 	{
 		double sum = 0.0;
@@ -58,11 +59,16 @@ public class Stats_library_Ch1
         	sum += num;
             sumOfSquares += Math.pow(num, 2);
         }
-        double mean = sum / userinputnum.size();
-        double variance = sumOfSquares / userinputnum.size() - Math.pow(mean, 2);
+        double variance = calculatevariance(sumOfSquares,sum,userinputnum);
         double stdDev = Math.sqrt(variance);
         return stdDev;
 	}
-
+    public double calculatevariance(double sumOfSquares, double sum, ArrayList<Double> userinputnum)
+        {
+        	double mean = sum / userinputnum.size();
+        	double variance = sumOfSquares / userinputnum.size() - Math.pow(mean, 2);
+        	return variance;
+        }
+        
 
 }
