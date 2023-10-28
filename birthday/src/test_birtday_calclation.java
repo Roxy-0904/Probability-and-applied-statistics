@@ -1,23 +1,26 @@
+import java.util.Scanner;
 
+/*
+ * Tests the methods from birthday_calclation
+ * and takes in the class size and the number of trials from the user.
+ * 
+ * @author heather krencick
+ */
 public class test_birtday_calclation 
 {
 	public static void main(String[] args)
 	{
-		final int Class = 20;
-		final int trial = 1000;
-		int birthday_match = 0;
+		birthday_calclation bdp = new birthday_calclation();
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter the class size you want to test: ");
+		int class_size = input.nextInt();
+		System.out.println("Enter the number of trials you want to run: ");
+		int trials = input.nextInt();
 		
-		for (int i = 0; i < trial; i++)
+		for (int i = 0; i < 10; i++)
 		{
-			if (birthday_calclation.matching_birthdays(Class))
-			{
-				birthday_match= birthday_match+1;
-			}
+			bdp.birthday_trial_checks(class_size, trials);
 		}
-		double probability = ((double)birthday_match / trial) * 100;
-		System.out.printf("Class size: %d %n", Class);
-		System.out.printf("Number of trials run: %d %n", trial);
-		System.out.printf("The probability of two people having the same birthday: %.2f%% %n", probability);
 	}
 
 }
