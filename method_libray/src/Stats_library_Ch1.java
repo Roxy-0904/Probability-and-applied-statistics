@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 
+/*
+ * this class holds the formulas for chapter 1
+ * @author heather krencicki
+ */
+
 public class Stats_library_Ch1 
 {
 	public double findmean(ArrayList<Double> userinputnum)

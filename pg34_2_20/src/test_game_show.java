@@ -5,14 +5,10 @@ public class test_game_show
 	{
 		
 		int trial = 10000;
-		
-		//never changes the door selected
-		System.out.println("The player never changes the door selected.");
-		game_show.game_door_not_changed(trial);
-		
-		//changes the door selected
-		System.out.println("The player changes the door selected.");
-		game_show.game_door_changed(trial);
+		game_show test = new game_show();
+		test.Montyhall(trial);
+		System.out.println("Choose to stay: percent correct - " + test.getStayprobobility());//never changes the door selected
+		System.out.println("Choose to change: percent corect - " + test.getChangeprobability());//changes the door selected
 		
 	}
 

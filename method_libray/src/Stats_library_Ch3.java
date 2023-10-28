@@ -1,6 +1,10 @@
-import java.util.Random;
 import java.lang.Math;
+import java.math.BigInteger;
 
+/*
+ * this class holds the formulas for chapter 3
+ * @author heather krencicki
+ */
 public class Stats_library_Ch3 extends Stats_library_Ch2
 
 {
@@ -19,30 +23,39 @@ public class Stats_library_Ch3 extends Stats_library_Ch2
 	return result;
 	}
 	
-	/*public double find_hypergeometric_probaility(Random r, int N, int n, int y )
+	public double find_hypergeometric_probaility(int r, int N, int n, int y )
 	{
-		int numerator = 0  ;
-		int denominator = 0;
-		for i = 1; 
-			{
-					
-			}
+		double numerator =  findCombination(r,y).doubleValue() * findCombination(N-r,n-y).doubleValue();
+		double denominator = findCombination(N,n).doubleValue();
+		
 		double result = numerator/denominator;
 		
 	return result;
-	}*/
+	}
 	
-	/*public double find_negative_binomial_probaility(double n, double p )
+	public double find_negative_binomial_probaility(double p, int y, int r )
 	{
-		int numerator = 0  ;
-		int denominator = 0;
-		for i = 1; 
-			{
-					
-			}
-		double result = numerator/denominator;
+		double q = 1-p;
+		double result = findCombination(y-1,r-1).doubleValue() * Math.pow(p, r) * Math.pow(q, (y-r));
 		
 	return result;
-	}*/
-
+	}
+	
+	public double find_poisson_probaility(int lim,int y )
+	{
+		double e = 2.718;
+		double numerator =   Math.pow(lim, y) * Math.pow(e, y);
+		BigInteger denominator = factorial(BigInteger.valueOf(y));
+		
+		double result = (numerator/denominator.doubleValue());
+		
+	return result;
+	}
+	
+	public double find_tchebysheff_probaility(int k )
+	{
+		double result = 1- 1/Math.pow(k, 2);
+		
+	return result;
+	}
 }

@@ -1,54 +1,63 @@
 import java.util.Random;
 
+/*
+ * In this class we have the method to complete the monty hall problem.
+ * In that method it takes in the number of trials from the test class
+ * and creates a situation to test to see if some one has chosen 
+ * the right door out of 3 doors to win a prize for that many trials.
+ * 
+ * I used https://www.javaprogrammingforums.com/blogs/copeg/13-monty-hall-problem.html for reference 
+ * and help with this program.
+ * 
+ * @author heather krencicki
+ */
 public class game_show 
 {
 	
-	public static  void game_door_not_changed(int trials)
+	private static double stayprobability  = 0;
+	private static double changeprobability = 0;
+	private static int stayCount = 0;
+	private static int changeCount = 0;
+	public void Montyhall(int trials)
 	{
-		Random n = new Random();
-		int wining = 0;
-		double probablity = 0.0;
-		for (int i = 1; i <= trials; i++)
-		{
-			int prize_door = n.nextInt(3)+1;// option of choosing form 3 doors;
-			int ChossenDoor = n.nextInt(3)+1;// player chose one of three doors
-			// if the player chooses the winning door increase the number of wins by one
-			if (ChossenDoor == prize_door)
-			{
-				wining++;
-			}
-			probablity = (wining / trials) * 100;
+	Random n = new Random();
+	for ( int i = 0; i < trials; i++ ){
+		int player_door = n.nextInt(3);//choose a door at random
+		int prize_door = n.nextInt(3);//find a random place where the car will be.
+		if ( prize_door != player_door ){//Car is in the other door - if you change you win
+			changeCount++;
+		}else{//If you stay you win.
+			stayCount++;
 		}
-		System.out.println ("The total number of wins out of " + trials + " games would be " + wining);
-		System.out.println ("Thus making the percentage of wins " + probablity + "%");
-		System.out.println();
+	}
+	stayprobability = (stayCount/(double)trials) * 100;
+	changeprobability  = (changeCount/(double)trials) * 100;
 	}
 	
-
-	public static void game_door_changed(int trials)
+	public static int getStayCount() 
 	{
-		Random n = new Random();
-		int wining = 0;
-		double probablity = 0.0;
-		for (int i = 1; i <= trials; i++);
-		{
-			int prize_door = n.nextInt(3)+1;// option of choosing form 3 doors
-			int dud = prize_door;
-			int ChossenDoor = n.nextInt(3)+1;// player chose one of three doors
-			while (dud == prize_door || dud == ChossenDoor)
-		    {
-				dud = n.nextInt(2)+1;
-		    }
-			int changeDoor = 2 - ChossenDoor;
-			if (changeDoor == prize_door)
-			{
-				wining++;
-			}
-			probablity = ((double) wining / trials) * 100;
-		}
-		System.out.println ("The total number of wins out of " + trials + " games would be " + wining);
-		System.out.println ("Thus making the percentage of wins " + probablity+ "%");
-		System.out.println();
+		return stayCount;
 	}
 
+	public static int getChangeCount() 
+	{
+		return changeCount;
+	}
+
+	/**
+	 * Retrieves the probability one will be correct if one stays. This method returns
+	 * zero unless run has been called. 
+	 * @return stayprobability;
+	 * */
+	public double getStayprobobility(){
+	return stayprobability;
+	}
+	/**
+	 * Retrieves the probability one will be correct if one changes.  This method returns
+	 * zero unless run has been called. 
+	 * @return changeprobability;
+	 * */
+	public double getChangeprobability(){
+	return changeprobability ;
+	}
 }

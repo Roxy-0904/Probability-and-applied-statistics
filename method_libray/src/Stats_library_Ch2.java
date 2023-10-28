@@ -1,6 +1,11 @@
 import java.math.BigInteger;
 import java.util.ArrayList;
 
+/*
+ * this class holds the formulas for chapter 2
+ * had help from Hope
+ * @author heather krencicki
+ */
 public class Stats_library_Ch2 
 {
 	public double findintersection(ArrayList<Double> userinputnum1, ArrayList<Double> userinputnum2) 

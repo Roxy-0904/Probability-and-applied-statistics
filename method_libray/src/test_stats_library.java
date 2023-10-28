@@ -1,6 +1,10 @@
 import java.math.BigInteger;
 import java.util.ArrayList;
 
+/*
+ *This class is used to test all of the formulas that are in the chapter 1,2, and 3 classes.
+ * @author heather krencicki
+ */
 public class test_stats_library 
 {
 	public static void main(String[] args)
@@ -39,13 +43,19 @@ public class test_stats_library
 	System.out.println("This is the test for Combination " + testCombination);
 	System.out.println("This is the test for Premutation: " + testPremutation);
 	
-	//double test__hypergeometric_probaility = test_ch3.find_hypergeometric_probaility();
-	double test_binomial_distribution = test_ch3.find_Binomial_probaility(0.8, 4,2);
-	double test_geometric_probability = test_ch3.find_geometric_probaility(0.7,5);
+	double test_binomial_probability = test_ch3.find_Binomial_probaility(0.8, 4, 2);
+	double test_geometric_probability = test_ch3.find_geometric_probaility(0.7, 5);
+	double test__hypergeometric_probability = test_ch3.find_hypergeometric_probaility(5, 20, 10, 5);
+	double test_negative_binomial_probability = test_ch3.find_negative_binomial_probaility(0.4, 10, 3);
+	double test_poisson_probability = test_ch3.find_poisson_probaility(2, 4);
+	double test_tchebysheff_probability = test_ch3.find_tchebysheff_probaility(4);
 	System.out.println("Chapter 3");
-	System.out.println("This is the test for binomial distribution: " + test_binomial_distribution);
+	System.out.println("This is the test for binomial probability: " + test_binomial_probability);
 	System.out.println("This is the test for geometric probability: " + test_geometric_probability);
-	//System.out.println("This is the Standard Deviation of testnums: " + test__hypergeometric_probaility);
+	System.out.println("This is the test for hypergeomtric probability: " + test__hypergeometric_probability);
+	System.out.println("This is the test for negative binomial probability: " + test_negative_binomial_probability);
+	System.out.println("This is the test for poisson probability: " + test_poisson_probability);
+	System.out.println("This is the test for tchebysheff probaility: " + test_tchebysheff_probability);
 	}
 
 
