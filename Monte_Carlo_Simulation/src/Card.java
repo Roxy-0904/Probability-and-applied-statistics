@@ -1,32 +1,38 @@
-import java.util.ArrayList;
 
 public class Card 
 {
-	ArrayList<String> suite = new ArrayList<String>();
-	ArrayList<String> value = new ArrayList<String>();
-	
-	public Card(ArrayList<String> suite, ArrayList<String> value) {
+	String suite;
+	String faceValue;
+	int value;
+		
+	public Card(String suite, int value) 
+	{
 		super();
 		this.suite = suite;
 		this.value = value;
 	}
-	public ArrayList<String> getSuite() {
+	
+	public Card(String suite, String faceValue, int value)
+	{
+		this.suite = suite;
+	    this.faceValue = faceValue;
+	    this.value = value;
+	}
+
+	
+	public String getSuite() 
+	{
 		return suite;
 	}
-	public void setSuite(ArrayList<String> suite) {
-		this.suite = suite;
+	public String getFaceValue() 
+	{
+		return faceValue;
 	}
-	public ArrayList<String> getValue() {
-		return value;
+
+	public int getValue() 
+	{
+		return this.value;
 	}
-	public void setValue(ArrayList<String> value) {
-		this.value = value;
-	}
-	
-	
-	
-	
-	
 	
 	
 
