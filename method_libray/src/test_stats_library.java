@@ -33,15 +33,27 @@ public class test_stats_library
 	System.out.println("This is the mode of testnums1: " + testmode);
 	System.out.println("This is the Standard Deviation of testnums1: " + testStandardDeviation);
 	
-	double testintersection = test_ch2.findintersection(testnums1,testnums2);
+	ArrayList<Double> testintersection = test_ch2.findintersection(testnums1,testnums2);
+	ArrayList<Double> testunion = test_ch2.findunion(testnums1,testnums2);
+	ArrayList<Double> testcomplement = test_ch2.findcomplent(testnums1,testnums2);
 	BigInteger testCombination =test_ch2.findCombination(3,6);
 	BigInteger testPremutation = test_ch2.findPremutation(3, 6);
 	BigInteger testfactorial = test_ch2.factorial(BigInteger.valueOf(7));
+	double testConditional = test_ch2.Conditional(.1, .3);
+	double testBayes = test_ch2.Bayes(.9, .9, .01, .99);
+	boolean test1Determining_Independence = test_ch2.Determining_Independence(.24, .6, .4);//returns true
+	boolean test2Determining_Independence = test_ch2.Determining_Independence(.24, .6, .3);//returns false
 	System.out.println("Chapter 2");
 	System.out.println("This is the intersection for testnums 1 and testnums2: " + testintersection);
+	System.out.println("This is the union for testnums 1 and testnums2: " + testunion);
+	System.out.println("This is the complement for testnums 1 and testnums2: " + testcomplement);
 	System.out.println("This is the test for factorial: " + testfactorial);
 	System.out.println("This is the test for Combination " + testCombination);
 	System.out.println("This is the test for Premutation: " + testPremutation);
+	System.out.println("This is the test for conditional: " + testConditional);
+	System.out.println("This is the test for bayes " + testBayes);
+	System.out.println("This is the test1 for determining independence : " + test1Determining_Independence);
+	System.out.println("This is the test2 for determining independence : " + test2Determining_Independence);
 	
 	double test_binomial_probability = test_ch3.find_Binomial_probaility(0.8, 4, 2);
 	double test_geometric_probability = test_ch3.find_geometric_probaility(0.7, 5);

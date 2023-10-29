@@ -8,58 +8,30 @@ import java.util.ArrayList;
  */
 public class Stats_library_Ch2 
 {
-	public double findintersection(ArrayList<Double> userinputnum1, ArrayList<Double> userinputnum2) 
+	public ArrayList<Double> findintersection(ArrayList<Double> userinputnum1, ArrayList<Double> userinputnum2) 
 	{
-		double sum_of_arrylist_1 = 0.0;
-		double sum_of_arrylist_2 = 0.0;
-		if (userinputnum1 == null || userinputnum2 == null) 
-	    {
-	        return 0.0;
-	    }
-	    for (Double num : userinputnum1) {
-	        sum_of_arrylist_1 += num;
-	    }
-	    
-	    for (Double num : userinputnum2) {
-	        sum_of_arrylist_2 += num;
-	    }
-	    
-	    double intersect = Math.min(sum_of_arrylist_1, sum_of_arrylist_2);
-	    return intersect / userinputnum1.size();
+		userinputnum1.retainAll(userinputnum2);
+		return userinputnum1;
 	}
 	
-	public ArrayList<Double> findunion(ArrayList<Double> userinputnum1,int elementfor1, ArrayList<Double> userinputnum2,int elementfor2)
+	public ArrayList<Double> findunion(ArrayList<Double> userinputnum1, ArrayList<Double> userinputnum2)
 	{
 		ArrayList<Double> placeholder = new ArrayList<Double>();
-		
-		//for(int i = 0; i < elementfor1; i++)
-		//{
-			//placeholder.add(userinputnum1[i]);
-		//}
-		//for(int i = 0; i < elementfor2; i++)
-		//{
-			//placeholder.add(userinputnum2[i]);
-		//}
+		placeholder.addAll(userinputnum1);
+		placeholder.addAll(userinputnum2);
 		return placeholder;
 	}
 	
-	public double find_idependent_and_dependent_intersection(ArrayList<Double> userinputnum)
+	public ArrayList<Double> findcomplent(ArrayList<Double> userinputnum1, ArrayList<Double> userinputnum2)
 	{
-	double sum = 0;
-	
-	//storing a value for clarity
-	double result = sum / userinputnum.size();
-	return result;
+		ArrayList<Double> placeholder = new ArrayList<Double>();
+		placeholder = findunion(userinputnum1,userinputnum2);
+		placeholder.removeAll(findintersection(userinputnum1,userinputnum2));
+		return placeholder;
 	}
 	
-	public double find_exclusive_or_not_excclusive_union(ArrayList<Double> userinputnum)
-	{
-	double sum = 0;
 	
-	//storing a value for clarity
-	double result = sum / userinputnum.size();
-	return result;
-	}
+	
 	public BigInteger findCombination(int n, int r)
 	{
 		
@@ -103,5 +75,30 @@ public class Stats_library_Ch2
 			
 		//Return the factorial result
 		return result;
+	}
+	public double Conditional(double anb,double b)
+	{
+		//storing a value for clarity
+		double result = anb / b;
+		return result;
+	}
+	
+	public double Bayes (double abj, double abj_com, double b, double b_com)
+	{	
+		//storing a value for clarity
+		double result = (abj * b) / ((abj * b) + (abj_com * b_com)) ;
+		return result;
+	}
+	
+	public boolean Determining_Independence (double anb,double a,double b)
+	{
+		if (a == Conditional(anb,b)|| b == Conditional(anb,a)|| anb ==a*b)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }
