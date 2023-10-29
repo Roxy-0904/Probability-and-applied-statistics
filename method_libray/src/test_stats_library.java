@@ -68,6 +68,7 @@ public class test_stats_library
 	System.out.println("This is the test for negative binomial probability: " + test_negative_binomial_probability);
 	System.out.println("This is the test for poisson probability: " + test_poisson_probability);
 	System.out.println("This is the test for tchebysheff probaility: " + test_tchebysheff_probability);
+	
 	}
 
 
