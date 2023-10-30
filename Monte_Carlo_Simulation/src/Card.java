@@ -1,39 +1,26 @@
 
 public class Card 
 {
-	String suite;
-	String faceValue;
-	int value;
-		
+	private String suite;
+	private int value ;
+	
 	public Card(String suite, int value) 
 	{
 		super();
 		this.suite = suite;
 		this.value = value;
 	}
-	
-	public Card(String suite, String faceValue, int value)
-	{
-		this.suite = suite;
-	    this.faceValue = faceValue;
-	    this.value = value;
-	}
-
-	
-	public String getSuite() 
-	{
+	public String getSuite() {
 		return suite;
 	}
-	public String getFaceValue() 
-	{
-		return faceValue;
+	public void setSuite(String suite) {
+		this.suite = suite;
 	}
-
-	public int getValue() 
-	{
-		return this.value;
+	public int getValue() {
+		return value;
+	}
+	public void setValue(int value) {
+		this.value = value;
 	}
 	
-	
-
 }
