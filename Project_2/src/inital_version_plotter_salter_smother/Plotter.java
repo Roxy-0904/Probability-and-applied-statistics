@@ -28,7 +28,7 @@ public class Plotter
 		try (FileWriter writer = new FileWriter("Function_points.csv");
 	             BufferedWriter Creater = new BufferedWriter(writer))
 			{
-				Creater.write("x" + "," + "y\n");
+				Creater.write("x" + "," + "y");
 				Creater.newLine();
 				for(int i = 0; i <= points; i++)
 				{		
