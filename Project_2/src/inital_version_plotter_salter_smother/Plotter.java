@@ -8,7 +8,7 @@ import java.io.IOException;
  * Plotter
  * in this program you are are take a function that is inside of the function class
  * then in the method plotter of graph it takes in the low and upper limits 
- * for the range of values and takes in how many points you want to get then as the function goes through it with 
+ * for the range of values and as the function goes through it with 
  * call the function method so that it can do math on the functiction until it has hit the last point for the points need then will print
  * out saying that plotting is complete.
  * 
@@ -22,7 +22,7 @@ public class Plotter
 		return y;
 	}
 	
-	public void plotterOfgraph(int lowlimit, int upperlimit, int points)
+	public void plotterOfgraph(int lowlimit, int upperlimit)
 	{
 		
 		try (FileWriter writer = new FileWriter("Function_points.csv");
@@ -30,7 +30,7 @@ public class Plotter
 			{
 				Creater.write("x" + "," + "y");
 				Creater.newLine();
-				for(int i = 0; i <= points; i++)
+				for(int i = lowlimit; i <= upperlimit; i++)
 				{		
 					int x = lowlimit + i;
 					int function = function(x);

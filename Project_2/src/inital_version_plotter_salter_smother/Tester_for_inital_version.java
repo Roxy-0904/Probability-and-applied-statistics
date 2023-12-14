@@ -12,8 +12,8 @@ public class Tester_for_inital_version
 	{
 			// uncomment the other lines to test those cases.
 			Plotter graph = new Plotter();
-			//graph.plotterOfgraph(0,100,50);
-			graph.plotterOfgraph(2,500,100);
+			//graph.plotterOfgraph(0,50);
+			graph.plotterOfgraph(2,100);
 			Salter salt = new Salter();
 			//salt.saltedvalues("Function_points.csv",5,10);
 			salt.saltedvalues("Function_points.csv",2500, 7500);
