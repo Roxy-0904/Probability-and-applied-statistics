@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -24,16 +25,16 @@ import inital_version_plotter_salter_smother.Smoother;
  */
 public class StockdataReader 
 {
-	public static Map<String, StockData> readData(String csvFile) 
+	public static Map<String, StockData> readData(String File) 
 	{
-        Map<String, StockData> stockDataMap = new HashMap<>();
+        Map<String, StockData> stockDataM = new HashMap<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) 
+        try (BufferedReader objReader = new BufferedReader(new FileReader(File))) 
         {
-            br.readLine(); // Skip the header line
+        	objReader.readLine(); // Skip the header line
 
             String line;
-            while ((line = br.readLine()) != null) 
+            while ((line = objReader.readLine()) != null) 
             {
                 String[] columns = line.split(",");
 
@@ -46,24 +47,40 @@ public class StockdataReader
                 long volume = Long.parseLong(columns[6]);
 
                 StockData stockData = new StockData(date, open, high, low, close, adjClose, volume);
-                stockDataMap.put(date, stockData);
+                stockDataM.put(date, stockData);
             }
         } catch (IOException e) 
         {
             e.printStackTrace();
         }
-        return stockDataMap;
+        return stockDataM;
     }
+	public static double calculateMovingAverage(List<Double> cost, int time) {
+
+	        double sum = 0;
+
+
+	        for (int i = 0; i < time; i++) {
+
+	            sum += cost.get(i);
+
+	        }
+
+
+	        return sum / time;
+
+	    }
 
     // Main method for testing or stand alone use
     public static void main(String[] args) 
     {
         String File = "GME.csv";
-        Map<String, StockData> stockDataMap = readData(File);
+        Map<String, StockData> stockDataM = readData(File);
 
         // Testing by printing data for a specific day
-        System.out.println(stockDataMap.get("2022-10-12"));
-        Smoother smooth = new Smoother();
-		smooth.smoothData(File,100,500);
+        System.out.println(stockDataM.get("12/12/2022"));
+        System.out.println();
+        //Smoother smooth = new Smoother();
+		//smooth.smoothData(File,100,500);
     }
 }

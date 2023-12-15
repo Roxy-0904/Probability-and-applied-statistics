@@ -1,9 +1,14 @@
 package stats_library_continued;
-
+/*
+ * has all formulas for chapter 4 and 5 that were able to be completed with out calc
+ * 
+ * had help from hope 
+ * @author heather krencicki
+ */
 public class Stats_libreary_Ch4_5 
 {
 	//Chapter 4
-	public static double continuousPDF(double x, double a, double b) 
+	public static double continuousPD(double x, double a, double b) 
     {
 		if (x < a || x > b) 
         {
@@ -12,7 +17,7 @@ public class Stats_libreary_Ch4_5
 		return 1.0 / (b - a);
     }
 
-	public static double continuousCDF(double x, double a, double b) 
+	public static double continuousCD(double x, double a, double b) 
     {
 		if (x < a) 
         {
@@ -28,12 +33,12 @@ public class Stats_libreary_Ch4_5
         }
     }
 
-	public static double discretePDF(int n) 
+	public static double discretePD(int n) 
     {
 		return 1.0 / n;
     }
 
-    public static double discreteCDF(int x, int n) 
+    public static double discreteCD(int x, int n) 
     {
     	if (x < 1) 
         {
@@ -49,13 +54,13 @@ public class Stats_libreary_Ch4_5
         }
     }
 
-    public static double generateContinuousRandom(double a, double b) 
+    public static double ContinuousRandom(double a, double b) 
     {
     	return a + Math.random() * (b - a);
     }
 
     
-    public static int generateDiscreteRandom(int n) 
+    public static int DiscreteRandom(int n) 
     {
         
     	return (int) (Math.random() * n) + 1;
